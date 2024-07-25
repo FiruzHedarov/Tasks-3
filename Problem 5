@@ -1,0 +1,38 @@
+class MyHashMap {
+public:
+    vector <pair<int, int>> mps;
+    MyHashMap() {
+        
+    }
+    
+    void put(int key, int value) {
+        for (int i = 0; i < mps.size(); i++)
+        {
+            if (mps[i].first == key)
+            {
+                mps[i].second = value;
+                return;
+            }
+        }
+        mps.push_back({key, value});
+    }
+    
+    int get(int key) {
+        for (int i = 0; i < mps.size(); i++)
+        {
+            if (mps[i].first == key) return mps[i].second;
+        }
+        return -1;
+    }
+    
+    void remove(int key) {
+        for (int i = 0; i < mps.size(); i++)
+        {
+            if (mps[i].first == key)
+            {
+                mps.erase(mps.begin() + i);
+                return;
+            }
+        }
+    }
+};
