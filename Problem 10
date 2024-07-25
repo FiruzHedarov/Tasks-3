@@ -1,0 +1,12 @@
+class Solution {
+public:
+vector <int> res;
+stack <int> kr;
+stack <int> pnm;
+    vector<int> rightSideView(TreeNode* root) {
+        if (root == NULL) return res;
+        res.push_back(root->val);
+        rightSideView(root->right);
+        return res;
+    }
+};
