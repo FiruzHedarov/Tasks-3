@@ -1,0 +1,39 @@
+class Solution {
+public:
+    int evalRPN(vector<string>& tokens) {
+        stack <int> numbers;
+
+        for (string iter: tokens)
+        {
+            if (iter == "+")
+            {
+                int second = numbers.top(); numbers.pop();
+                int first = numbers.top(); numbers.pop();
+                numbers.push(first + second);
+            }
+            else if (iter == "-")
+            {
+                int second = numbers.top(); numbers.pop();
+                int first = numbers.top(); numbers.pop();
+                numbers.push(first - second);
+            }
+            else if (iter == "*")
+            {
+                int second = numbers.top(); numbers.pop();
+                int first = numbers.top(); numbers.pop();
+                numbers.push(first * second);
+            }
+            else if (iter == "/")
+            {
+                int second = numbers.top(); numbers.pop();
+                int first = numbers.top(); numbers.pop();
+                numbers.push(first / second);
+            }
+            else 
+            {
+                numbers.push(stoi(iter));
+            }
+        }
+        return numbers.top();
+    }
+};
